@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* Base global styles */
 body {
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

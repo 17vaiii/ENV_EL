@@ -279,9 +279,9 @@ export default function App() {
   const ecoPath = optimizationData?.coordinates?.eco || [];
 
   return (
-    <div id="main-dashboard" className="min-h-screen bg-slate-950 text-slate-200 font-sans flex flex-col antialiased">
+    <div id="main-dashboard" className="min-h-screen bg-[#0B0F19] text-indigo-50 font-sans flex flex-col antialiased selection:bg-indigo-500/30">
       {/* Header Panel */}
-      <header id="dashboard-header" className="flex-shrink-0 bg-slate-900 border-b border-slate-800 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <header id="dashboard-header" className="flex-shrink-0 bg-[#0B0F19]/70 backdrop-blur-xl border-b border-indigo-500/20 px-8 py-5 flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-20 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
         <div className="flex items-center space-x-3">
           <div className="bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
             <Leaf className="w-6 h-6 text-emerald-400 animate-pulse" />
@@ -298,52 +298,52 @@ export default function App() {
         </div>
 
         {/* SDG Target Badges (Direct alignment to presentation) */}
-        <div id="sdg-alignment" className="flex items-center space-x-3 text-xs">
-          <div className="flex items-center bg-teal-950/40 border border-teal-800/30 rounded-lg p-2 space-x-2">
-            <div className="w-5 h-5 rounded bg-teal-600 text-white flex items-center justify-center font-bold text-[10px]">11</div>
+        <div id="sdg-alignment" className="flex items-center space-x-4 text-xs">
+          <div className="flex items-center bg-violet-950/30 backdrop-blur border border-violet-500/20 rounded-xl p-2.5 space-x-3 shadow-[0_0_10px_rgba(139,92,246,0.1)] group hover:border-violet-400/50 transition-all">
+            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-bold text-[10px] shadow-inner group-hover:scale-110 transition-transform">11</div>
             <div>
-              <p className="text-[10px] text-teal-400 uppercase font-bold leading-none">SDG 11 Target</p>
-              <p className="text-[11px] text-slate-300 font-medium leading-normal mt-0.5">Sustainable Cities</p>
+              <p className="text-[10px] text-violet-300 uppercase font-bold leading-none tracking-wider">SDG 11 Target</p>
+              <p className="text-[11px] text-indigo-100/70 font-medium leading-normal mt-1">Sustainable Cities</p>
             </div>
           </div>
-          <div className="flex items-center bg-emerald-950/40 border border-emerald-800/30 rounded-lg p-2 space-x-2">
-            <div className="w-5 h-5 rounded bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px]">13</div>
+          <div className="flex items-center bg-indigo-950/30 backdrop-blur border border-indigo-500/20 rounded-xl p-2.5 space-x-3 shadow-[0_0_10px_rgba(79,70,229,0.1)] group hover:border-indigo-400/50 transition-all">
+            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center font-bold text-[10px] shadow-inner group-hover:scale-110 transition-transform">13</div>
             <div>
-              <p className="text-[10px] text-emerald-400 uppercase font-bold leading-none">SDG 13 Target</p>
-              <p className="text-[11px] text-slate-300 font-medium leading-normal mt-0.5">Climate Action</p>
+              <p className="text-[10px] text-indigo-300 uppercase font-bold leading-none tracking-wider">SDG 13 Target</p>
+              <p className="text-[11px] text-indigo-100/70 font-medium leading-normal mt-1">Climate Action</p>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Container Layout */}
-      <main id="app-workspace" className="flex-grow flex flex-col lg:flex-row min-h-0">
+      <main id="app-workspace" className="flex-grow flex flex-col lg:flex-row min-h-0 bg-[#0B0F19]">
         
         {/* Sidebar Controls (Left) */}
-        <section id="sidebar-controls" className="w-full lg:w-96 bg-slate-900 border-r border-slate-800 p-5 overflow-y-auto flex-shrink-0 flex flex-col gap-5">
+        <section id="sidebar-controls" className="w-full lg:w-[400px] bg-[#0B0F19]/60 backdrop-blur-2xl border-r border-indigo-500/10 p-6 overflow-y-auto flex-shrink-0 flex flex-col gap-6 relative z-10 shadow-[4px_0_24px_rgba(0,0,0,0.2)]">
           
           {/* Main Navigation Tabs */}
-          <div id="dashboard-modes" className="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
+          <div id="dashboard-modes" className="grid grid-cols-2 gap-1.5 bg-[#05070A]/50 p-1.5 rounded-2xl border border-white/5 backdrop-blur-sm">
             <button
               onClick={() => setActiveTab('routing')}
-              className={`flex items-center justify-center space-x-2 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+              className={`flex items-center justify-center space-x-2 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 ${
                 activeTab === 'routing'
-                  ? 'bg-gradient-to-r from-emerald-950 to-teal-950 text-emerald-400 border border-emerald-500/20'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-gradient-to-r from-violet-600/20 to-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-[0_0_15px_rgba(79,70,229,0.15)]'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
               }`}
             >
-              <Navigation className="w-3.5 h-3.5" />
+              <Navigation className="w-4 h-4" />
               <span>Route Optimizer</span>
             </button>
             <button
               onClick={() => setActiveTab('fleet')}
-              className={`flex items-center justify-center space-x-2 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+              className={`flex items-center justify-center space-x-2 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 ${
                 activeTab === 'fleet'
-                  ? 'bg-gradient-to-r from-emerald-950 to-teal-950 text-emerald-400 border border-emerald-500/20'
-                  : 'text-slate-400 hover:text-slate-200'
+                  ? 'bg-gradient-to-r from-violet-600/20 to-indigo-600/20 text-indigo-300 border border-indigo-500/30 shadow-[0_0_15px_rgba(79,70,229,0.15)]'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
               }`}
             >
-              <Bus className="w-3.5 h-3.5" />
+              <Bus className="w-4 h-4" />
               <span>Operator Fleet ({fleetBuses.length})</span>
             </button>
           </div>
@@ -517,7 +517,7 @@ export default function App() {
               <button
                 onClick={runOptimization}
                 disabled={isOptimizing}
-                className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all shadow-lg hover:shadow-emerald-500/15 disabled:opacity-50 flex items-center justify-center space-x-2 mt-4 cursor-pointer"
+                className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white py-3.5 rounded-xl font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] disabled:opacity-50 flex items-center justify-center space-x-2 mt-6 cursor-pointer border border-white/10"
               >
                 {isOptimizing ? (
                   <>
@@ -546,10 +546,10 @@ export default function App() {
                       setSelectedBus(bus);
                       setActiveTab('fleet');
                     }}
-                    className={`w-full text-left p-3 rounded-xl border transition-all flex flex-col justify-between space-y-2.5 ${
+                    className={`w-full text-left p-3.5 rounded-2xl border transition-all duration-300 flex flex-col justify-between space-y-3 group ${
                       selectedBus?.id === bus.id
-                        ? 'bg-slate-800/60 border-emerald-500/50 text-white'
-                        : 'bg-slate-950/40 border-slate-800 hover:bg-slate-800/30 text-slate-300'
+                        ? 'bg-indigo-950/40 border-indigo-400 text-white shadow-[0_0_15px_rgba(79,70,229,0.2)]'
+                        : 'bg-slate-900/30 border-white/5 hover:border-indigo-500/30 hover:bg-indigo-950/20 text-slate-300'
                     }`}
                   >
                     <div className="flex justify-between items-center w-full">
@@ -603,14 +603,14 @@ export default function App() {
         </section>
 
         {/* Center Dashboard View (Map & Statistics cards) */}
-        <section id="analytics-console" className="flex-grow flex flex-col min-h-0 bg-slate-950">
+        <section id="analytics-console" className="flex-grow flex flex-col min-h-0 bg-[#05070A] relative">
           
           {/* Statistics summary overlays (Direct Alignment with Presentation expected impacts) */}
           {optimizationData && activeTab === 'routing' && (
-            <div id="impact-cards-deck" className="bg-slate-950 p-4 border-b border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div id="impact-cards-deck" className="bg-[#0B0F19]/80 backdrop-blur-xl p-5 border-b border-indigo-500/10 grid grid-cols-2 md:grid-cols-4 gap-4 relative z-20 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
               
               {/* SDG Fuel Savings card */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+              <div className="bg-slate-900/40 backdrop-blur-md border border-indigo-500/20 rounded-2xl p-4 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-indigo-400/50 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300">
                 <div className="flex justify-between items-start">
                   <div className="p-1.5 bg-emerald-500/10 rounded-lg text-emerald-400">
                     <TrendingDown className="w-4 h-4" />
@@ -628,7 +628,7 @@ export default function App() {
               </div>
 
               {/* CO2 reduction card */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+              <div className="bg-slate-900/40 backdrop-blur-md border border-indigo-500/20 rounded-2xl p-4 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-indigo-400/50 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300">
                 <div className="flex justify-between items-start">
                   <div className="p-1.5 bg-teal-500/10 rounded-lg text-teal-400">
                     <Wind className="w-4 h-4" />
@@ -646,7 +646,7 @@ export default function App() {
               </div>
 
               {/* Trees planted card */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+              <div className="bg-slate-900/40 backdrop-blur-md border border-indigo-500/20 rounded-2xl p-4 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-indigo-400/50 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300">
                 <div className="flex justify-between items-start">
                   <div className="p-1.5 bg-green-500/10 rounded-lg text-green-400">
                     <Leaf className="w-4 h-4" />
@@ -664,7 +664,7 @@ export default function App() {
               </div>
 
               {/* Signal prioritized rating */}
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+              <div className="bg-slate-900/40 backdrop-blur-md border border-indigo-500/20 rounded-2xl p-4 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:border-indigo-400/50 hover:shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all duration-300">
                 <div className="flex justify-between items-start">
                   <div className="p-1.5 bg-indigo-500/10 rounded-lg text-indigo-400">
                     <Activity className="w-4 h-4" />
@@ -813,7 +813,7 @@ export default function App() {
             </APIProvider>
 
             {/* Map Overlay legend & view controls */}
-            <div id="map-control-overlay" className="absolute bottom-5 left-5 bg-slate-900/90 backdrop-blur border border-slate-800 rounded-xl p-3 shadow-2xl z-10 text-xs space-y-2.5 max-w-[250px]">
+            <div id="map-control-overlay" className="absolute bottom-6 left-6 bg-[#0B0F19]/85 backdrop-blur-xl border border-indigo-500/30 rounded-2xl p-4 shadow-[0_8px_32px_rgba(79,70,229,0.2)] z-10 text-xs space-y-3 max-w-[260px]">
               <div className="font-semibold text-white">Operator Legend</div>
               <div className="space-y-1.5">
                 <div className="flex items-center space-x-2">
@@ -863,7 +863,7 @@ export default function App() {
 
             {/* AI Optimizer recommendation popover */}
             {optimizationData && activeTab === 'routing' && (
-              <div id="recommendation-popover" className="absolute top-5 right-5 max-w-sm bg-slate-900/95 backdrop-blur border border-slate-800 rounded-xl p-4 shadow-2xl z-10 text-xs space-y-3 max-h-[380px] overflow-y-auto">
+              <div id="recommendation-popover" className="absolute top-6 right-6 max-w-sm bg-[#0B0F19]/85 backdrop-blur-xl border border-indigo-500/30 rounded-2xl p-5 shadow-[0_8px_32px_rgba(79,70,229,0.2)] z-10 text-xs space-y-4 max-h-[400px] overflow-y-auto">
                 <div className="flex items-center space-x-2 border-b border-slate-800 pb-2">
                   <Sparkles className="w-4 h-4 text-emerald-400" />
                   <span className="font-bold text-white text-xs tracking-wide">Multi-Objective Insights</span>
@@ -910,7 +910,7 @@ export default function App() {
 
           {/* Quick Route comparison stat table at the bottom */}
           {optimizationData && activeTab === 'routing' && (
-            <div id="metrics-tabulator" className="bg-slate-900 border-t border-slate-800 p-4 overflow-x-auto">
+            <div id="metrics-tabulator" className="bg-[#0B0F19]/90 backdrop-blur-md border-t border-indigo-500/20 p-5 overflow-x-auto relative z-20 shadow-[0_-8px_30px_rgba(0,0,0,0.2)]">
               <table className="w-full text-left text-xs min-w-[600px]">
                 <thead>
                   <tr className="text-slate-400 border-b border-slate-800/80 pb-2">
